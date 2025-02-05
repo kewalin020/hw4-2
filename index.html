@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ระบบจัดการคลังสินค้า</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="script.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600&family=Noto+Sans+Thai:wght@300;400;500;600&family=Kanit:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="p-6 bg-gray-100 font-[Kanit]">
+    <div class="max-w-4xl mx-auto bg-white p-6 rounded-xl shadow">
+      <h1
+        class="text-center text-2xl font-semibold text-indigo-600 sm:text-3xl mt-5"
+      >
+        📦 ระบบจัดการคลังสินค้า
+      </h1>
+
+      <!-- ฟอร์มเพิ่มสินค้า -->
+      <form id="productForm" class="mb-4 mt-5">
+        <input
+          type="text"
+          id="name"
+          placeholder="ชื่อสินค้า"
+          required
+          class="p-2 border border rounded-xl w-full mb-2"
+        />
+        <input
+          type="number"
+          id="price"
+          placeholder="ราคา"
+          required
+          class="p-2 border rounded-xl w-full mb-2"
+        />
+        <input
+          type="number"
+          id="inStock"
+          placeholder="จำนวนคงเหลือ"
+          required
+          class="p-2 border rounded-xl w-full mb-2"
+        />
+
+        <!-- ประเภทสินค้า -->
+        <select
+          id="category"
+          required
+          class="p-2 border rounded-xl w-full mb-2"
+        >
+          <option value="electronics">อิเล็กทรอนิกส์</option>
+          <option value="fashion">แฟชั่น</option>
+          <option value="home">ของใช้ในบ้าน</option>
+          <option value="clothing">เสื้อผ้า</option>
+          <option value="food">อาหาร</option>
+        </select>
+
+        <button
+          type="submit"
+          class="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white hover:bg-indigo-700 transition-all"
+        >
+          เพิ่มสินค้า
+        </button>
+      </form>
+
+      <!-- ตารางแสดงสินค้า -->
+      <h2 class="text-xl font-semibold text-gray-800 mt-8">📋 รายการสินค้า</h2>
+
+      <table class="w-full border-collapse border border-gray-300 mt-4">
+        <thead>
+          <tr class="bg-gray-200">
+            <th class="border p-2">ชื่อสินค้า</th>
+            <th class="border p-2">ประเภท</th>
+            <th class="border p-2">ราคา</th>
+            <th class="border p-2">คงเหลือ</th>
+            <th class="border p-2">ยอดขาย</th>
+            <th class="border p-2">จัดการ</th>
+          </tr>
+        </thead>
+        <tbody id="productTable"></tbody>
+      </table>
+
+      <!-- รายการสินค้าใกล้หมด -->
+      <h2 class="text-xl font-semibold text-red-600 mt-8">⚠️ สินค้าใกล้หมด</h2>
+      <div
+        id="lowStockList"
+        class="mt-2 bg-red-100 p-4 rounded-lg shadow-sm text-gray-700"
+      ></div>
+
+      <!-- รายงานสินค้าขายดี -->
+      <h2 class="text-xl font-semibold text-green-600 mt-8">🔥 สินค้าขายดี</h2>
+      <div
+        id="bestSellers"
+        class="mt-2 bg-green-100 p-4 rounded-lg shadow-sm text-gray-700"
+      ></div>
+    </div>
+  </body>
+</html>
